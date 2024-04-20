@@ -1,5 +1,8 @@
 package com.invoice.invoice.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Client {
   private String name;
   private String lastname;

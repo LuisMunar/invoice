@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class Invoice {
@@ -17,6 +18,15 @@ public class Invoice {
   @Autowired
   @Qualifier("itemsInvoiceII")
   private List<Item> items;
+
+  public Invoice() {
+    System.out.println("ONE");
+  }
+
+  @PostConstruct
+  public void init() {
+    System.out.println("INVOICE_CREATED => " + this);
+  }
 
   public Client getClient() {
     return client;

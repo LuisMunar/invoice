@@ -1,6 +1,8 @@
 package com.invoice.invoice.models;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +11,8 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
 @Component
+@RequestScope
+@JsonIgnoreProperties(value = { "targetSource", "advisors", "frozen", "targetClass", "proxiedInterfaces", "advisorCount", "proxyTargetClass", "exposeProxy", "preFiltered", "targetObject" })
 public class Invoice {
   @Autowired
   private Client client;

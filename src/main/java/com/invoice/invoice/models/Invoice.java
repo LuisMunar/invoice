@@ -2,6 +2,7 @@ package com.invoice.invoice.models;
 
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Invoice {
   private String description;
 
   @Autowired
+  @Qualifier("itemsInvoiceII")
   private List<Item> items;
 
   public Client getClient() {
